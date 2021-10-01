@@ -17,7 +17,7 @@ export async function getStaticPaths(){
 	//api call to get all ids
 	const meetups = await getMeetups();
 	return{
-		fallback: false, //supported ids are all covered in the paths.  
+		fallback: 'blocking', //supported ids are all covered in the paths.  
 		paths: meetups.map(meetup => ({params:{meetupId: meetup._id.toString()}}))
 	}
 }
